@@ -7,6 +7,7 @@
 #include "Role.h"
 #include "Action.h"
 #include <string>
+#include "Category.h"
 
 using namespace std;
 
@@ -29,6 +30,10 @@ int main()
     cout << endl;
     test->print();
     cout << endl;
+
+    Category* category = new Category(1, "cat1");
+
+    category->print();
 }
 
 
