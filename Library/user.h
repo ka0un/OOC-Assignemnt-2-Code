@@ -16,8 +16,8 @@ private:
 
 public:
 	User();
-	User(int id, string name, string nic, string password);
-	User(int id, string name, string nic, string password, Role* role);
+	User(int id, string name, string nic, string email, string password);
+	User(int id, string name, string nic, string email, string password, Role* role);
 	bool performs(Action* action);
 	void print();
 	int getId();

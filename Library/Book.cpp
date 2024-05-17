@@ -3,35 +3,29 @@
 
 using namespace std;
 
-Book::Book(int id, string name, string author, string description,
-           string imageUrl)
-    : Entity(name) {
+Book::Book(int id, string name, string author, string description,string imageUrl) : Entity(name) {
   this->id = id;
   this->author = author;
   this->description = description;
   this->imageUrl = imageUrl;
   currentReservations = 0;
+  copyAmount = 0;
 }
 
 void Book::addReservation() { currentReservations++; }
 
 void Book::removeReservation() { currentReservations--; }
 
-void Book::addCopy(Copy copy) {
-  // add copy to copies array
+int Book::addCopy(string name, bool pr) {
+    copies[copyAmount] = new Copy(copyAmount + 1, name, pr);
+    copyAmount++;
+    return copyAmount;
 }
 
-void Book::removeCopy(Copy copy) {
-  // remove copy from copies array
+void Book::removeCopy(int copyId) {
+    copies[copyId - 1] = nullptr;
 }
 
-void Book::addCategory(Category category) {
-  // add category to categories array
-}
-
-void Book::removeCategory(Category category) {
-  // remove category from categories array
-}
 
 void Book::print() {
   cout << "Book {name = " << getName() << ", id = " << id
@@ -47,7 +41,12 @@ string Book::getDescription() { return description; }
 
 Category *Book::getCategories() { return categories; }
 
-Copy *Book::getCopies() { return copies; }
+Copy* Book::getCopies() { return *copies; }
+
+Copy Book::getCopy(int copyId)
+{
+    return *copies[copyId - 1];
+}
 
 int Book::getCurrentReservations() { return currentReservations; }
 
@@ -65,6 +64,5 @@ void Book::setCategories(Category *categories) {
 
 void Book::setImageUrl(string url) { imageUrl = url; }
 
-void Book::setCopies(Copy *copies) { this->copies = copies; }
 
 void Book::setCurrentReservations(int amount) { currentReservations = amount; }

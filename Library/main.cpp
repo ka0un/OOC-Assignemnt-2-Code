@@ -10,65 +10,57 @@
 using namespace std;
 
 int main() {
-    cout << "test";
+    
+    //Creating Roles Of Library Users
+    Role *member = new Role(1, "Member");
+    Role *assistant = new Role(2, "Library Assistant");
+    Role *manager = new Role(3, "Library Manager");
+    Role *admin = new Role(4, "Library Administrator");
 
-    Role* member = new Role(1, "Member");
+    //Assigning Permissions to Roles
+    member->addPermission("BROWSE_BOOKS");
+    member->addPermission("RESERVATION");
 
-    User* user = new User(1, "kamal", "123", "123123", member);
+    assistant->addPermission("RESERVATION");
+    assistant->addPermission("BROWSE_BOOKS");
+    assistant->addPermission("CHECKOUT");
+    assistant->addPermission("RETURN");
 
+    manager->addPermission("BROWSE_BOOKS");
+    manager->addPermission("RESERVATION");
+    manager->addPermission("CHECKOUT");
+    manager->addPermission("RETURN");
+    manager->addPermission("CREATE_ANNOUNCEMENT");
 
+    admin->addPermission("BROWSE_BOOKS");
+    admin->addPermission("RESERVATION");
+    admin->addPermission("CHECKOUT");
+    admin->addPermission("RETURN");
+    admin->addPermission("CREATE_ANNOUNCEMENT");
 
-    cout << endl;
+    //printing some infomation about roles
     member->print();
-    cout << endl;
-    user->print();
-    cout << endl;
-
-    Category* category = new Category(1, "cat1");
-
-    category->print();
-
-    Book* book = new Book(1, "Madol Duwa", "Martin Wikramasighe", "example", "https");
-    Category categories[1] = { Category(1, "Nobvels") };
-    Copy copies[2] = { Copy(1, "copy 1", false), Copy(2, "copy 2", false) };
-    book->setCategories(categories);
-    book->setCopies(copies);
-
-    book->print();
     cout << endl << endl;
 
-    Category* bookcats = book->getCategories();
-
-    bookcats[0].print();
+    assistant->print();
     cout << endl << endl;
 
-    Copy* copis = book->getCopies();
-
-    copis[0].print();
+    manager->print();
     cout << endl << endl;
 
-    copis[1].print();
+    admin->print();
     cout << endl << endl;
 
-    Announcement* an1 = new Announcement(1, "New Ann", "welcome new", 18000);
-    user->performs(an1);
-    an1->print();
-    cout << endl << endl;
+    //Creating User Accounts
+    User* adminUser = new User(1, "Kasun Hapangama", "kasun@hapangama.com", "123123", "password", admin);
+    User* assistantUser = new User(2, "Eyyas", "eyyas123@gmail.com", "123123", "password", assistant);
+    User* managerUser = new User(3, "Kavindu Herath", "kavndu@gmail.com", "123123", "password", manager);
 
-    Checkout* ck = new Checkout(1, "chekone", &copis[0]);
-    user->performs(ck);
-    ck->print();
-    cout << endl << endl;
+    User* member1 = new User(4, "Danuli", "daniru@gmail.com", "123123", "password", member);
+    User* member2 = new User(5, "Oshadi", "123123@gmail.com" , "123123", "password", member);
 
-    Return* rt = new Return(1, "return one", &copis[0]);
-    user->performs(rt);
-    rt->print();
-    cout << endl << endl;
+    //printing infomation about users
 
-    Reservation* r1 = new Reservation(1, "reservation1", book, 18000);
-    user->performs(r1);
-    r1->print();
-    cout << endl << endl;
 
 
     

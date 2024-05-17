@@ -4,15 +4,15 @@ using namespace std;
 
 User::User() : Entity("null") {}
 
-User::User(int id, string name, string nic, string password) : Entity(name) {
+User::User(int id, string name, string nic, string email, string password) : Entity(name) {
     this->id = id;
     this->nic = nic;
     this->password = password;
+    this->email = email;
     this->role = new Role(1, "Member"); // default role
 }
 
-User::User(int id, string name, string nic, string password, Role* role)
-    : User(id, name, nic, password) {
+User::User(int id, string name, string nic,string email, string password, Role* role) : User(id, name, nic, email, password) {
     this->role = role;
 }
 

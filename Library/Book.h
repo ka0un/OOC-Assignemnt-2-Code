@@ -13,17 +13,16 @@ private:
 	string description;
 	Category *categories;
 	string imageUrl;
-	Copy *copies;
+	Copy *copies[10] = {nullptr}; //coppy pointer array initalizzed with 10 null poniters
 	int currentReservations;
+	int copyAmount;
 
 public:
 	Book(int id, string name, string author, string description, string imageUrl);
 	void addReservation();
 	void removeReservation();
-	void addCopy(Copy copy);
-	void removeCopy(Copy copy);
-	void addCategory(Category category);
-	void removeCategory(Category category);
+	int addCopy(string name, bool pr); //this function returns newly created copyId
+	void removeCopy(int copyId);
 	void print();
 
 	int getId();
@@ -31,6 +30,7 @@ public:
 	string getDescription();
 	Category* getCategories();
 	Copy* getCopies();
+	Copy getCopy(int copyId);
 	int getCurrentReservations();
 
 	void setId(int id);
@@ -38,7 +38,6 @@ public:
 	void setDescription(string description);
 	void setCategories(Category *categories);
 	void setImageUrl(string url);
-	void setCopies(Copy *copies);
 	void setCurrentReservations(int amount);
 	
 
