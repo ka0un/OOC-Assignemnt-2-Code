@@ -11,7 +11,7 @@ public:
 	Entity(const string name);
 	string getName() const;
 	void setName(const string name);
-	void print() const;
+	void print();
 };
 
 

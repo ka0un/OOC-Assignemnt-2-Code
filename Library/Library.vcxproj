@@ -135,6 +135,8 @@
     <ClCompile Include="Copy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Reservation.cpp" />
+    <ClCompile Include="Return.cpp" />
     <ClCompile Include="Role.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
@@ -146,6 +148,8 @@
     <ClInclude Include="Checkout.h" />
     <ClInclude Include="Copy.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Reservation.h" />
+    <ClInclude Include="Return.h" />
     <ClInclude Include="Role.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

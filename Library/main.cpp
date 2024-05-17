@@ -4,6 +4,8 @@
 #include <string>
 #include "Announcement.h"
 #include "Checkout.h"
+#include "Return.h"
+#include "Reservation.h"
 
 using namespace std;
 
@@ -57,6 +59,21 @@ int main() {
     user->performs(ck);
     ck->print();
     cout << endl << endl;
+
+    Return* rt = new Return(1, "return one", &copis[0]);
+    user->performs(rt);
+    rt->print();
+    cout << endl << endl;
+
+    Reservation* r1 = new Reservation(1, "reservation1", book, 18000);
+    user->performs(r1);
+    r1->print();
+    cout << endl << endl;
+
+
+    
+
+    
 
 
 }

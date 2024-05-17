@@ -10,7 +10,7 @@ Copy::Copy(int id, string name, bool pr) : Entity(name) {
 }
 
 void Copy::print() {
-    cout << "{name = " << getName() << ", id = " << id << ", pr = " << pr
+    cout << "Copy {name = " << getName() << ", id = " << id << ", pr = " << pr
         << ", ischeckedout = " << isCheckedOut << "}";
 }
 

@@ -6,9 +6,11 @@ string Entity::getName() const { return name; }
 
 void Entity::setName(const string name) { this->name = name; }
 
-void Entity::print() const {
-	std::cout << "Entity {name = " << name << "}" << std::endl;
+void Entity::print()
+{
+	cout << "Entity {}";
 }
+
 
 
 
