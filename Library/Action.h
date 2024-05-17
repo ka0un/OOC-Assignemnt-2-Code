@@ -10,16 +10,16 @@ class Action : public Entity {
 private:
     int id;
     string permission;
-    bool isexecuted;
-    int executedTimeStamp;
+    bool isexecuted = false;
+    int executedTimeStamp = 0;
 
 public:
     Action();
     Action(int id, string name, string permission);
     Action(int id, string name, string permission, bool isExecuted);
 
-    bool execute();
-    void print();
+    virtual bool execute() = 0;
+    void postExecution();
 
     int getId();
     string getPermission();

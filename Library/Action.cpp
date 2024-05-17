@@ -15,16 +15,11 @@ Action::Action(int id, string name, string permission, bool isExecuted) : Action
     this->isexecuted = isExecuted;
 }
 
-bool Action::execute() {
-    // checks if user has reqired permission to execute action and
-    //  if yes execute it and return true
-    //  else return false
-    return true;
-}
-
-void Action::print() {
-    cout << "Action {id = " << id << ", name = " << getName()
-        << ", permission = " << permission << "}";
+void Action::postExecution()
+{
+    int currentTimeStamp = 0; // use proper way to get current time stamp on implemention
+    this->setExecuted(true);
+    this->setExecutedTimeStamp(currentTimeStamp);
 }
 
 int Action::getId() { return id; }
